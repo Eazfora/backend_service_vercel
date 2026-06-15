@@ -39,7 +39,6 @@ export class DashboardController {
     return this.dashboardService.retrainChurnModel();
   }
 
-  // ENDPOINT BARU: GET http://localhost:3000/api/dashboard/products
   @Get('products')
   async getAllProducts() {
     const products = await this.dashboardService.getAllProducts();
@@ -49,7 +48,7 @@ export class DashboardController {
     };
   }
 
-  // Endpoint untuk memasukkan data baru (POST http://localhost:3000/api/dashboard/transactions)
+  
   @Post('transactions')
   @UsePipes(new ValidationPipe({ transform: true }))
   async createTransaction(@Body() body: CreateTransactionDto) {

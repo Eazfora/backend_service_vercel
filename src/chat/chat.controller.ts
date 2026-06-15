@@ -1,7 +1,7 @@
 import { Controller, Post, Body, BadRequestException } from '@nestjs/common';
 import { ChatService } from './chat.service';
 
-@Controller('chat') // Jika di sini @Controller('chat'), maka di frontend panggil http://localhost:3000/chat
+@Controller('chat') 
 export class ChatController {
   constructor(private readonly chatService: ChatService) {}
 
