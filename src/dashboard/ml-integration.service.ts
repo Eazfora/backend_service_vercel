@@ -7,7 +7,7 @@ export class MlIntegrationService {
   private readonly logger = new Logger(MlIntegrationService.name);
 
   // URL Server Python (FastAPI)
-  private readonly ML_ENGINE_URL = 'http://localhost:8000';
+  private readonly ML_ENGINE_URL = 'https://capstone-ai-vercel.vercel.app';
 
   constructor(private readonly httpService: HttpService) {}
 
