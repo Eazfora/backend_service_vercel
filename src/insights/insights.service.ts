@@ -15,7 +15,7 @@ export class InsightsService {
   ) {
     this.pythonApiBaseUrl =
       this.configService.get<string>('PYTHON_API_URL') ||
-      'http://localhost:8000';
+      'https://capstone-ai-vercel.vercel.app';
   }
 
   //! FITUR 1: CUSTOMER CHURN PREDICTION

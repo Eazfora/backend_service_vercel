@@ -767,7 +767,7 @@ export class DashboardService {
       }
 
       // 3. Kirim data yang sudah padat dan terstruktur ke server Python
-      const response = await axios.post('http://localhost:8000/retrain', {
+      const response = await axios.post('https://capstone-ai-vercel.vercel.app/retrain', {
         transactions: formattedTransactions,
       });
 
@@ -1113,7 +1113,7 @@ export class DashboardService {
       };
 
       const response = await axios.post(
-        'http://localhost:8000/retrain-churn',
+        'https://capstone-ai-vercel.vercel.app/retrain-churn',
         payload,
       );
 
@@ -1127,7 +1127,7 @@ export class DashboardService {
   async getSalesNarrative(category: string) {
     // Panggil endpoint Python di atas
     const response = await axios.post(
-      'http://localhost:8000/generate-insight-narrative',
+      'https://capstone-ai-vercel.vercel.app/generate-insight-narrative',
       {
         // kirim data historis kategori tersebut
       },
@@ -1150,7 +1150,7 @@ export class DashboardService {
   async handleChatbotMessage(message: string) {
     try {
       // Meneruskan pesan dari frontend langsung ke port 8000 Python
-      const pythonResponse = await axios.post('http://localhost:8000/chat', {
+      const pythonResponse = await axios.post('https://capstone-ai-vercel.vercel.app/chat', {
         message: message,
       });
 
