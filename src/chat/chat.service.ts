@@ -6,7 +6,7 @@ export class ChatService {
   async getChatResponse(message: string) {
     try {
       // PERBAIKAN UTAMA: Ubah localhost menjadi 127.0.0.1
-      const pythonResponse = await axios.post('http://127.0.0.1:8000/chat', {
+      const pythonResponse = await axios.post('https://capstone-ai-vercel.vercel.app/chat', {
         message: message,
       });
 

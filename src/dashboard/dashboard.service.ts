@@ -1149,7 +1149,6 @@ export class DashboardService {
   // ==========================================
   async handleChatbotMessage(message: string) {
     try {
-      // Meneruskan pesan dari frontend langsung ke port 8000 Python
       const pythonResponse = await axios.post('https://capstone-ai-vercel.vercel.app/chat', {
         message: message,
       });
