@@ -576,7 +576,7 @@ export class DashboardService {
 
         try {
           const pythonResponse = await axios.post(
-            'http://127.0.0.1:8000/forecast-sales',
+            'https://capstone-ai-vercel.vercel.app/forecast-sales',
             {
               Target_Month: targetMonthStr,
               Current_Quantity: lastActual,
@@ -693,10 +693,10 @@ export class DashboardService {
 
         if (catResult.pythonInsights) {
           globalInsights = {
-            anomalySpike: catResult.pythonInsights.anomaly_spike || 18,
+            anomalySpike: catResult.pythonInsights?.anomaly_spike || 18,
             anomalyCategory: category,
-            confidenceScore: catResult.pythonInsights.confidence_score || 85,
-            correlation: catResult.pythonInsights.correlation || {
+            confidenceScore: catResult.pythonInsights?.confidence_score || 85,
+            correlation: catResult.pythonInsights?.correlation || {
               promo: 0.85,
               weekend: 0.72,
             },
@@ -767,9 +767,12 @@ export class DashboardService {
       }
 
       // 3. Kirim data yang sudah padat dan terstruktur ke server Python
-      const response = await axios.post('https://capstone-ai-vercel.vercel.app/retrain', {
-        transactions: formattedTransactions,
-      });
+      const response = await axios.post(
+        'https://capstone-ai-vercel.vercel.app/retrain',
+        {
+          transactions: formattedTransactions,
+        },
+      );
 
       return response.data;
     } catch (error) {
@@ -1149,9 +1152,12 @@ export class DashboardService {
   // ==========================================
   async handleChatbotMessage(message: string) {
     try {
-      const pythonResponse = await axios.post('https://capstone-ai-vercel.vercel.app/chat', {
-        message: message,
-      });
+      const pythonResponse = await axios.post(
+        'https://capstone-ai-vercel.vercel.app/chat',
+        {
+          message: message,
+        },
+      );
 
       if (pythonResponse.data && pythonResponse.data.status === 'success') {
         return {
